@@ -16,7 +16,7 @@ export class Transaction {
     @Column({type:'decimal',nullable:true})
     discount:number
 
-    @Column({type:'timestamp', default: ()=> "CURRENT_TIMESTAMP(6)"})
+    @Column({type:'datetime', default: ()=> "CURRENT_TIMESTAMP"})
     transactionDate: Date
 
     @Column()

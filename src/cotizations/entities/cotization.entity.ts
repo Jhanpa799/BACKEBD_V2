@@ -23,7 +23,7 @@ export class Cotization {
     @Column({ nullable: true })
     description: string
 
-    @Column({ type: 'timestamp', default: () => "CURRENT_TIMESTAMP(6)" })
+    @Column({ type: 'datetime', default: () => "CURRENT_TIMESTAMP" })
     cotizationDate: Date
 
 
