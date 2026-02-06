@@ -11,7 +11,7 @@ export const typeOrmConfig=(configService:ConfigService):TypeOrmModuleOptions=>(
     username:configService.get('R_DATABASE_USER'),
     password:configService.get('R_DATABASE_PASS'),
     database: configService.get('R_DATABASE_NAME'),
-    url:configService.get('L_DATABASE_URL'),
+    url:configService.get('R_DATABASE_URL'),
     //logging:true
     entities:[join(__dirname+'../../**/*.entity.{js,ts}')],
     synchronize:true
