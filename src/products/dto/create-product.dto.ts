@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateProductDto {
 
@@ -9,13 +9,16 @@ export class CreateProductDto {
     name:string
 
     
-    @IsNumber({maxDecimalPlaces:2},{message:'Precio no válido'})
+    @IsNumber({maxDecimalPlaces:0},{message:'Precio no válido'})
     @IsNotEmpty({message:'El precio del producto es obligatorio'})
     price: number
 
     @IsNotEmpty({message:'La cantidad no puede ir vacía'})
     @IsNumber({maxDecimalPlaces:0},{message:'Cantidad no válida'})
     inventory: number
+
+    @IsOptional()
+    visible:boolean
 
     @IsNotEmpty({message:'La categoría no puede ir vacía'})
     @IsInt({message:'Categoría no válida'})

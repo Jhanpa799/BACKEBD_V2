@@ -19,6 +19,9 @@ export class Product {
 
     @Column({type:'int'})
     inventory:number;
+    
+    @Column({type:'boolean',default:true})
+    visible:boolean;
 
     @ManyToOne(()=> Category,{eager:false})
     category: Category;
