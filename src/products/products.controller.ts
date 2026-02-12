@@ -20,8 +20,8 @@ export class ProductsController {
   @Get()
   //Se pone GetProductsDto para poder recibir parámetros. El GetProductDto
   findAll(@Query() query: GetProductsDto) {
-    const take = query.take ? query.take:100;
-    const skip = query.skip ? query.skip:20;
+    const take = query.take ? query.take:10;
+    const skip = query.skip ? query.skip:0;
     const category = query.category_id ? query.category_id : null;
     return this.productsService.findAll(category,take,skip);
   }
