@@ -12,6 +12,7 @@ import { ServicesModule } from './services/services.module';
 import { MaterialsModule } from './materials/materials.module';
 import { CotizationsModule } from './cotizations/cotizations.module';
 import { PrintingsModule } from './printings/printings.module';
+import { MailService } from './mail/mail.service';
 
 
 @Module({
@@ -30,6 +31,6 @@ import { PrintingsModule } from './printings/printings.module';
     CotizationsModule,
     PrintingsModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, MailService],
 })
 export class AppModule {}

@@ -4,18 +4,25 @@ import { UpdateCotizationDto } from './dto/update-cotization.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cotization } from './entities/cotization.entity';
 import { Repository } from 'typeorm';
+import { MailService } from 'src/mail/mail.service';
+
+
 
 @Injectable()
 export class CotizationsService {
 
   constructor(
-    @InjectRepository(Cotization) private readonly cotizationRepository: Repository<Cotization>
+    @InjectRepository(Cotization) 
+    private readonly cotizationRepository: Repository<Cotization>,
+    private readonly mailService:MailService
   ) { }
+
+
   async create(createCotizationDto: CreateCotizationDto) {
     console.log('Cotización entrando')
-
     const cot = await this.cotizationRepository.save(createCotizationDto)
     console.log('Cotización creada')
+    await this.mailService.sendCotizationNotification(cot)
     return { ...cot,message:"Cotización registrada correctamente" };
   }
 
